@@ -9,59 +9,28 @@ namespace Lab06
 
     class Program
     {
-        static void Main(string[] args)
+
+        class Teacher
         {
-            //Student su = new Student("Student Name", "12345678");
-            StudentID su = new StudentID("StudentID", 123456789)
-            try
+            // constructor (for initial private/protected variables)
+            public Teacher(string name, float billingRate)
             {
-                //su.Name = "My name";
-                su.salary = 300.0f;
-                //Console.WriteLine("Student name : " + su.Name);
-                Console.WriteLine("StudentID   : " + su.StudentID);
-                Console.WriteLine("salary  : " + su.salary);
+                this.name = name;
+                this.billingRate = billingRate;
             }
-            catch (Exception e)
+            // figure out the charge based on teacher's rate
+            public float CalculateCharge(float hours)
             {
-                Console.WriteLine(e.Message);
+                return (hours * billingRate);
             }
-            Console.ReadLine();
+            // return the name of this type
+            public string TypeName()
+            {
+                return ("Teacher");
+            }
+            private string name;
+            protected float billingRate;
         }
+
     }
-    class Student
-    {
-      //  private string name;
-        private string id;
-        private float salary;
-
-        public Student(string StudentID, string salary)
-        {
-            this.StudentID = StudentID;   // assign auto variable to the field
-            this.salary = salary;
-        }
-
-        public string StudentID
-        {
-            get { return StudentID; }
-        }
-     //   public string ID
-        {
-       //     get { return id; }
-        //}
-        public float salary
-        {
-            get
-            {
-                return salary;
-            }
-            set
-            {
-                if (value > 300.0 && value <= 450.0)
-                    salary = value;
-                else
-                    throw (new Exception("Error!!!! invalid salary"));
-            }
-        }
-    }
-
 }
